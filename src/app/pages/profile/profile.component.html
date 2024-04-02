@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+  <title>Cyborg - Awesome HTML5 Template</title>
+
+  <link rel="stylesheet" href="./profile.component.scss">
+</head>
+
+<body>
+
+<div class="login_wrapper">
+  <div class="wrapper">
+    <div class="title">
+      Profile
+    </div>
+    <form name="form" novalidate>
+      <div class="field">
+        <input type="text" class="form-control" name="firstName" value="MyCourse" [(ngModel)]="profile.firstName" required/>
+        <label for="firstName">First Name</label>
+      </div>
+      <div class="field">
+        <input type="text" class="form-control" name="lastName" [(ngModel)]="profile.lastName" required/>
+        <label for="lastName">Last Name</label>
+      </div>
+     <div class="field">
+        <input type="number" class="form-control" name="age" value="MyCourse" [(ngModel)]="profile.age" required/>
+        <label for="age">Age</label>
+      </div>
+       <div class="field">
+        <input type="text" class="form-control" name="gender" [(ngModel)]="profile.gender" required/>
+        <label for="gender">Gender</label>
+      </div>
+      <div class="field">
+        <input type="text" class="form-control" name="address" [(ngModel)]="profile.address" required/>
+        <label for="address">Address</label>
+      </div>
+       <div class="field">
+        <input type="text" class="form-control" name="website" [(ngModel)]="profile.website" required/>
+        <label for="website">Website</label>
+      </div>
+    </form>
+    <div class="btn-add-course">
+      <button (click)="updateUserProfile()">
+        Upload
+      </button>
+    </div>
+  </div>
+</div>
+</body>
+</html>

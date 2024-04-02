@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Login Form</title>
+  <link rel="stylesheet" href="./register.component.css">
+</head>
+<body>
+<div class="login_wrapper">
+  <div class="wrapper">
+    <div class="title">
+      Register
+    </div>
+    <form *ngIf="!isRegistered" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+      <div class="field">
+        <input type="text" class="form-control" name="first_name" [(ngModel)]="form.first_name" required #first_name="ngModel"/>
+        <label for="first_name">First Name</label>
+        <div *ngIf="f.submitted && first_name.invalid">
+          First Name is required
+        </div>
+      </div>
+      <div class="field">
+        <input type="text" class="form-control" name="last_name" [(ngModel)]="form.last_name" required #last_name="ngModel"/>
+        <label for="last_name">First Name</label>
+        <div *ngIf="f.submitted && last_name.invalid">
+          First Name is required
+        </div>
+      </div>
+      <div class="field">
+        <input type="text" class="form-control" name="username" [(ngModel)]="form.username" required #username="ngModel"/>
+        <label for="username">Email Address</label>
+        <div *ngIf="f.submitted && username.invalid">
+          Username is required
+        </div>
+      </div>
+      <div class="field">
+        <input type="password" class="form-control" name="password" [(ngModel)]="form.password" required minlength="6"
+               #password="ngModel"/>
+        <label for="password">Password</label>
+        <div *ngIf="f.submitted && password.invalid">
+          <div *ngIf="password.errors?.required">Password is required</div>
+          <div *ngIf="password.errors?.minlength">
+            Password must be at least 6 characters
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <input type="submit" value="Continue">
+        <div *ngIf="f.submitted && isRegisterFailed" class="alert alert-danger">
+          Login failed: {{errorMessage}}
+        </div>
+      </div>
+      <div class="signup-link">
+        Already have an account? <a [routerLink]="" (click)="goToLoginPage()">Login now</a>
+      </div>
+    </form>
+  </div>
+</div>
+
+</body>
+</html>
